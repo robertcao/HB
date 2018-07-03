@@ -1,0 +1,128 @@
+<div id="wrapper">
+
+  <%= stylesheet_link_tag 'dataTables.bootstrap4.min' %>
+
+  <%= render 'left_side_panel' %>
+  <%= render 'top_nav_bar' %>
+
+  <div id="page-wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Contacts</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-success">
+
+          <div class="panel-body">
+            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+              <thead>
+              <tr>
+                <th>Nickname</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Company</th>
+                <th>Title</th>
+                <th>Company Type</th>
+                <th>Company Address</th>
+                <th>Company Phone</th>
+                <th>Personal Phone</th>
+                <th>Relationship</th>
+                <th>Source</th>
+                <th>Created At</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @contacts.each do |contact| %>
+                  <tr>
+                    <td><a href="/internal/contact_info?id=<%= contact.id %>"><%= contact.nickname %></a></td>
+                    <td><a href="/internal/contact_info?id=<%= contact.id %>"><%= contact.email %></a></td>
+                    <td><%= contact.first_name %></td>
+                    <td><%= contact.last_name %></td>
+                    <td><%= contact.gender %></td>
+                    <td><%= contact.company %></td>
+                    <td><%= contact.title %></td>
+                    <td><%= contact.company_type %></td>
+                    <td><%= contact.company_address %></td>
+                    <td><%= contact.company_phone %></td>
+                    <td><%= contact.personal_phone %></td>
+                    <td><%= contact.relationship %></td>
+                    <td><%= contact.source %></td>
+                    <td><%= contact.created_at.to_date %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+            <!-- /.table-responsive -->
+          </div>
+          <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="well">
+      <a class="btn btn-success btn-md btn-block" target="_blank" href="/internal/contact_create">Create New Contact</a>
+    </div>
+  </div>
+  <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<!-- DataTables JavaScript -->
+<%= javascript_include_tag 'jquery.min' %>
+<%= javascript_include_tag 'jquery.dataTables.min' %>
+<%= javascript_include_tag 'dataTables.bootstrap.min' %>
+<%= javascript_include_tag 'dataTables.responsive' %>
+<script src="//cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $.noConflict();
+        $('#dataTables-example').DataTable({
+            responsive: true,
+//            dom: 'Blfrtip',
+//            dom: "<'row'<'col-md-6'l><'col-md-6'Bf>>" +
+//            "<'row'<'col-md-6'><'col-md-6'>>" +
+//            "<'row'<'col-md-12't>><'row'<'col-md-12'ip>>",
+//            lengthMenu:[
+//                [10,25,50,-1],
+//                ['10','25','50','all']
+//            ],
+//            buttons: [
+//                {extend: 'copy',
+//                    exportOptions: {
+//                        columns: ':visible',
+//                        rows: ':visible'
+//                    },
+//                    title: null
+//                },
+//                {extend: 'print',
+//                    exportOptions: {
+//                        columns: ':visible',
+//                        rows: ':visible'
+//                    },
+//                    title: 'HEMI Insight-Contacts'
+//                },
+//                {extend: 'csv',
+//                    exportOptions: {
+//                        columns: ':visible',
+//                        rows: ':visible'
+//                    },
+//                    title: 'HEMI Insight-Contacts'
+//                },
+//            ]
+        });
+    });
+</script>

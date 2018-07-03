@@ -1,0 +1,26 @@
+<% if !@check_contact_result.nil? and @check_contact_result.size > 0 %>
+    <div class="clear" style="padding: 30px 30px 30px 5px;">
+      <table class="table">
+        <tr>
+          <th>Edit</th>
+          <th>Nick Name</th>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Created By</th>
+          <th>Created At</th>
+        </tr>
+        <% @check_contact_result.each do |contact| %>
+            <tr>
+              <td><a class="btn btn-info" role="button" href="/internal/edit_contact?id=<%= contact.id %>">Edit</a></td>
+              <td><%= contact.nickname %></td>
+              <td><%= contact.email %></td>
+              <td><%= contact.first_name %></td>
+              <td><%= contact.last_name %></td>
+              <td><%= User.find_by(id: contact.created_by_user).name unless contact.created_by_user.nil? %></td>
+              <td><%= contact.created_at %></td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+<% end %>

@@ -1,0 +1,48 @@
+<div class="container">
+
+  <div class="guest-container-600">
+    <div class="guest-body">
+
+      <div class="center">
+        <div style="font-size: 24px; font-style: oblique; font-weight: bold; color: #000000; margin-bottom: 40px">HEMI BRAIN</div>
+      </div>
+
+      <div class="login-form-container clearfix">
+        <div class="sign-in">
+
+          <%= form_tag "/data_portal/create_login_session" do %>
+              <div class="input-field">
+                <%= email_field_tag :email,  params[:email], autofocus: true, placeholder: 'user@hemi.vc' %>
+              </div>
+
+              <div class="input-field">
+                <%= password_field_tag :password, params[:password], placeholder: 'Password' %>
+              </div>
+
+              <div>
+                <div class="checkbox" style="float:left; width: 50%">
+                  <label>
+                    <%= check_box_tag :event_user, 1, params[:event_user] %>
+                    Event
+                  </label>
+
+                </div>
+
+                <div class="checkbox" style="float:right; width: 50%">
+                  <label>
+                    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+                    Remember me
+                  </label>
+                </div>
+              </div>
+
+
+              <div> <%= submit_tag "SIGN IN", :id => "commit" %> </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,129 @@
+<div id="wrapper">
+
+  <%= render 'left_side_panel' %>
+  <%= render 'top_nav_bar' %>
+
+  <div id="page-wrapper">
+    <div class="row">
+      <div class="col-sm-10">
+        <h1><%= @current_contact.nickname %></h1>
+        <h4><%= @current_contact.first_name %> <%= @current_contact.middle_name %> <b style="text-transform: uppercase"><%= @current_contact.last_name %></b></h4>
+        <h4><a href="//<%= @current_contact.website %>"> <%= @current_contact.company %></a>, <%= @current_contact.title %></h4>
+        <h4><%= @current_contact.email %></h4>
+      </div>
+      <div class="col-sm-2">
+        <h4></h4>
+        <a href="/internal/contact_info?id-<%= @current_contact.id %>" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.rlsandbox.com/img/profile.jpg"></a>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-4">
+        <!--left col-->
+        <ul class="list-group">
+          <li class="list-group-item text-muted" style="background-color: #337AB7;"><strong style="color: #ffffff">Personal Info</strong></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Gender</strong></span> <%= @current_contact.gender %></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Birthday</strong></span> <%= @current_contact.birthday %></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Phone</strong></span> <%= @current_contact.personal_phone %></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Address</strong></span> <%= @current_contact.personal_address %></li>
+        </ul>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading"><b>Linkedin</b> <i class="fa fa-link fa-1x"></i>
+
+          </div>
+          <div class="panel-body"><a href="<%= @current_contact.linkedin %>"><%= @current_contact.linkedin %></a>
+
+          </div>
+        </div>
+
+        <ul class="list-group">
+          <li class="list-group-item text-muted" style="background-color: #337AB7;"><strong style="color: #ffffff">Additional Info</strong></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Relationship</strong></span> <%= @current_contact.relationship %></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Source</strong></span> <%= @current_contact.source %></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Created By</strong></span> User_id: <%= @current_contact.created_by_user %></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Created At</strong></span> <%= @current_contact.created_at.to_date %></li>
+        </ul>
+
+      </div>
+      <!--/col-3-->
+      <div class="col-sm-8" style="" contenteditable="false">
+        <ul class="list-group">
+          <li class="list-group-item text-muted" style="background-color: #5CB85C;"><strong style="color: #ffffff">Company Info</strong></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Company Name</strong></span> <%= @current_contact.company %></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Company Type</strong></span> <strong style="color: #d33333"><%= @current_contact.company_type %></strong></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Company Phone</strong></span> <%= @current_contact.company_phone %></li>
+          <li class="list-group-item text-right" style="height: 40px"><span class="pull-left"><strong>Company Address</strong></span> <%= @current_contact.company_address %></li>
+        </ul>
+
+        <div class="panel panel-green">
+          <div class="panel-heading"><b>Company Website</b> <i class="fa fa-university fa-1x"></i>
+          </div>
+          <div class="panel-body"> <a href="<%= @current_contact.website %>"><%= @current_contact.website %></a>
+
+          </div>
+        </div>
+        <div class="panel panel-success target">
+          <div class="panel-heading" contenteditable="false"><b>Involved Other Companies</b></div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <h4>
+                      B.com
+                    </h4>
+                    <p>
+                      IOT company in Bay Area.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <h4>
+                      C.com
+                    </h4>
+                    <p>
+                      AI company in East Coast.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <h4>
+                      D.com
+                    </h4>
+                    <p>
+                      SOA Company in China.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading"><b>Files</b></div>
+      <div class="panel-body"> <%= @current_contact.avatar %> </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading"><b>Notes</b></div>
+      <div class="panel-body"> <%= @current_contact.note %> </div>
+    </div>
+
+  </div>
+
+</div>
