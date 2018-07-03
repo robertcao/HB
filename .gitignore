@@ -36,3 +36,8 @@ dump.rdb
 public/map-images/
 test/fixtures/files/test001.mp4
 all-coverage/
+test/
+/test
+*.pem
+README.rdoc
+Gemfile.lock
