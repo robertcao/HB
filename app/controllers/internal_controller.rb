@@ -24,7 +24,7 @@ class InternalController < ApplicationController
     render 'internal/dashboard'
   end
 
-  def deal
+  def Portfolio
     @portfolio = Portfolio.order(created_at: :desc)
     render 'internal/portfolio'
   end
