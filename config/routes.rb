@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     resources :users
 
     get 'internal/dashboard' => 'internal#dashboard'
+
+    get 'internal/person'   => 'internal#person'
+
+    get 'internal/company'   => 'internal#company'
+
     get 'internal/contact'   => 'internal#contact'
     get 'internal/contact_create'   => 'internal#contact_create'
     get 'internal/contact_info' => 'internal#contact_info'

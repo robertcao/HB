@@ -39,6 +39,18 @@ class InternalController < ApplicationController
 
   end
 
+  def person
+    @persons = Person.order(created_at: :desc)
+    render 'internal/person'
+  end
+
+  def company
+    @companies = Company.order(created_at: :desc)
+    render 'internal/company'
+  end
+
+
+
   def contact
     @contacts = Contact.order(created_at: :desc)
     render 'internal/contact'
