@@ -9,7 +9,7 @@ gem 'mysql2', '0.3.18'
 # gem 'sqlite3'
 
 gem 'execjs'
-gem 'therubyracer', :platforms => :ruby
+# gem 'therubyracer', :platforms => :ruby
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

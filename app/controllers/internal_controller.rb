@@ -9,8 +9,8 @@ class InternalController < ApplicationController
   end
 
   def dashboard
-    @total_contact = Contact.count
-    @your_contact = @total_contact
+    @total_contact = Company.count + Person.count
+    @your_contact = Company.where(:created_by_user => current_user.id).count + Person.where(:created_by_user => current_user.id).count
 
     @total_deal = Deal.count
     @your_deal = 0
@@ -42,6 +42,10 @@ class InternalController < ApplicationController
   def person
     @persons = Person.order(created_at: :desc)
     render 'internal/person'
+  end
+
+  def person_info
+    @current_person = Person.find_by(id: params[:id])
   end
 
   def company
