@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'internal/dashboard' => 'internal#dashboard'
 
     get 'internal/person'   => 'internal#person'
+    get 'internal/person_info' => 'internal#person_info'
 
     get 'internal/company'   => 'internal#company'
 
